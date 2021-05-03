@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation_page/React_table</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+        <header class="container1">
+            <img src="./logo react_table.jpg" alt="logo of react table" id="logo">
+            <h1 class="rec">React Table</h1>
+        </header>
+        <nav id="navbar">
+            <header class="doc">Documentation</header>
+            <ul>
+                <li>
+                    <h4>Getting Started</h4>
+                    <ul>
+                        <li>
+                            <a href="#Overview" class="nav-link">Overview</a>
+                        </li>
+                        <li>
+                            <a href="#Installation" class="nav-link">Installation</a>
+                        </li>
+                        <li><a href="#Quick_Start" class="nav-link">Quick Start</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>API Reference</h4>
+                    <ul>
+                        <li>
+                            <a href="#API_Overview" class="nav-link">API Overview</a>
+                        </li>
+                        <li>
+                            <a href="#useTable" class="nav-link">useTable</a>
+                        </li>
+                        <li>
+                            <a href="#useResizeColumns" class="nav-link">useResizeColumns</a>
+                        </li>
+                        <li>
+                            <a href="#useFlexLayout" class="nav-link">useFlexLayout</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>Example</h4>
+                    <ul>
+                        <li>
+                            <a href="#Example_Basic" class="nav-link">Example Basic</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4><a href="#FAQ" class="nav-link">FAQ</a></h4>
+                </li>
+            </ul>
+        </nav>
+    <main id="main-doc">    
+        <section class="main-section" id="Overview">
+            <header>Overview</header>
+            <article>
+                <p>React Table is a collection of hooks for <strong>building powerful tables and datagrid experiences</strong>. These hooks are lightweight, composable, and ultra-extensible, but <strong>do not render any markup or styles for you</strong>. This effectively means that React Table is a "headless" UI library</p>
+                <h3>What is a "headless" UI library?</h3>
+                <p>React Table is a headless utility, which means out of the box, it doesn't render or supply any actual UI elements. You are in charge of utilizing the state and callbacks of the hooks provided by this library to render your own table markup. <strong class="color">Read this article to understand why React Table is built this way.</strong> If you don't want to, then here's a quick explanation of why headless UI is important:</p>
+                <ul>
+                    <li>
+                        Separation of Concerns - Not that superficial kind you read about all the time. The real kind. React Table as a library honestly has no business being in charge of your UI. The look, feel, and overall experience of your table is what makes your app or product great. The less React Table gets in the way of that, the better!
+                    </li>
+                    <li>
+                        Maintenance - By removing the massive (and seemingly endless) API surface area required to support every UI use-case, React Table can remain small, easy-to-use and simple to update/maintain.
+                    </li>
+                    <li>
+                        Extensibility - UI presents countless edge cases for a library simply because it's a creative medium, and one where every developer does things differently. By not dictating UI concerns, React Table empowers the developer to design and extend the UI based on their unique use-case.
+                    </li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Installation">
+            <header>Installation</header>
+            <article>
+                <p>You can install React Table with NPM,Yarn, or a good ol' <code>&lt;script&gt;</code> via unpkg.com.</p> 
+                <h3>NPM</h3>
+                <code>npm install react-table --save</code><br>
+                <p>or</p>
+                <code>yarn add react-table</code>
+            </article>
+        </section><br>
+        <section class="main-section" id="Quick_Start">
+            <header>Quick Start</header>
+            <p>At the heart of every React Table is the useTable hook and the table instance object that it returns. This instance object contains everything you'll need to build a table and interact with its state. This includes, but is not limited to:</p>
+            <ul>
+                <li>Columns</li>
+                <li>Materialized Data</li>
+                <li>Sorting</li>
+                <li>Filtering</li>
+                <li>Grouping</li>
+                <li>Pagination</li>
+                <li>Expanded State</li>
+                <li>Any functionality provided by custom plugin hooks, too!</li>
+            </ul>
+            <h3>Getting your data</h3>
+            <p>When thinking about a table structure, you typically have <strong>rows</strong> which contain <strong>columns</strong>. While table configurations can get far more complex with nested columns, subrows, etc. for this basic quick start, we need to define some data that resembles this structure.</p><br>
+            <code class="cod">const data = React.useMemo(<br>
+                () => [<br>
+                  {<br>
+                    col1: 'Hello',<br>
+                    col2: 'World',<br>
+                  },<br>
+                  {<br>
+                    col1: 'react-table',<br>
+                    col2: 'rocks',<br>
+                  },<br>
+                  {<br>
+                    col1: 'whatever',<br>
+                    col2: 'you want',<br>
+                  },<br>
+                ],<br>
+              )</code>
+        </section>
+        <section class="main-section" id="API_Overview">
+            <header>API Overview</header>
+            <article>
+                <p>React Table uses React Hooks both internally and externally for almost all of its configuration and lifecycle management. Naturally, this is what allows React Table to be headless and lightweight while still having a concise and simple API.React Table is essentially a compatible collection of <strong>custom React hooks</strong>:</p>
+                <ul>
+                    <li>The primary React Table hook</li>
+                    <li>Plugin Hooks</li>
+                    <li>3rd Party Plugin Hooks</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="useTable">
+            <header>useTable</header>
+            <article>
+                <p>useTable is the root hook for React Table. To use it, pass it with an options object with at least a columns and data value, followed by any React Table compatible hooks you want to use.</p>
+                <ul> 
+                    <li>Table Options </li>
+                    <li>Column Options </li>
+                    <li>Instance Properties </li>
+                    <li>HeaderGroup Properties </li>
+                    <li>Column Properties</li>
+                    <li>Row Properties</li>
+                    <li>Cell Properties</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="useResizeColumns">
+            <header>useResizeColumns</header>
+            <article>
+                <ul>
+                    <li>Plugin Hook</li>
+                    <li>Optional</li>
+                </ul>
+                <p><code>useResizeColumns</code> is a plugin hook that adds support for resizing headers and cells when using non-table elements for layout eg. the <code>useBlockLayout</code>, <code>useAbsoluteLayout</code>, and <code>useGridLayout</code> hooks. It even supports resizing column groups!</p>
+            </article>
+        </section>
+        <section class="main-section" id="useFlexLayout">
+            <header>useFlexLayout</header>
+            <article>
+                <p>useFlexLayout is a plugin hook that adds support for headers and cells to be rendered as inline-block divs (or other non-table elements) with width being used as the flex-basis and flex-grow. This hook becomes useful when implementing both virtualized and resizable tables that must also be able to stretch to fill all available space.</p>
+                <p><strong>NOTE:</strong>Although no additional options are needed for this plugin to work, the core column options width, minWidth and maxWidth are used to calculate column and cell widths and must be set:</p> 
+                <ul>
+                    <li>minWidth is only used to limit column resizing. It does not define the minimum width for a column.</li>
+                    <li>width is used as both the flex-basis and flex-grow. This means that it essentially acts as both the minimum width and flex-ratio of the column.</li>
+                    <li>maxWidth is only used to limit column resizing. It does not define the maximum width for a column.</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="Example_Basic">
+            <header>Example Basic</header>
+            <article>
+                <ul>
+                    <li><a href="https://github.com/tannerlinsley/react-table/tree/master/examples/basic">View Source</a></li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="FAQ">
+            <header>FAQ</header>
+            <article>
+                <p>Below are some of the most frequently asked questions on how to use the React Table API to solve various table challenges you may encounter</p><hr>
+                <h4 class="thin">How can I manually control the table state?</h4>
+                <h4 class="thin">How can I use the table state to fetch new data?</h4>
+                <h4 class="thin">How can I debounce rapid table state changes?</h4>
+                <h4 class="thin">How do I stop my table state from automatically resetting when my data changes?</h4>
+            </article>
+        </section>
+        <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+
+    </main>   
+</body>
+</html>

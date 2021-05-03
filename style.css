@@ -1,0 +1,128 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0 0 30px 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: linear-gradient(0.25turn, #3f87a6, #ebf8e1, #f69d3c);
+}
+#logo{
+    width: 80px;
+    height: 80px;
+    margin: 10px;
+    border-radius: 50px;
+}
+.container1{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(180, 126, 190);
+    position: sticky;
+    top: 0;
+    border-bottom: solid 2px gold;
+}
+
+.color{
+    color: rgba(231, 65, 204, 0.781);
+}
+section header{
+    font-size: 30px;
+    text-decoration: underline 2px;
+    font-family: monospace;
+    text-align: center;
+    padding-top: 10px;
+}
+header:hover{
+    color: palevioletred;
+}
+.doc{
+    font-size: xx-large;
+    font-weight: bold;
+}
+nav li{
+    list-style-type: none;
+    padding: 5px;
+}
+nav li a{
+    text-decoration: none;
+    color: rgba(29, 27, 27, 0.671);
+}
+nav li a:hover{
+    color: rgb(90, 87, 90);
+}
+code{
+    display: block;
+    background-image: linear-gradient(45deg, rgba(189, 121, 168, 0.651), rgba(238, 173, 233, 0.692));
+    font-size: 15px;
+    border-radius: 5px;
+    margin: 20px;
+    padding: 20px;
+    line-height: 3;
+}
+.cod{
+    text-align: center;
+    padding: 10px;
+    border-radius: 30px;
+}
+nav{
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 300px;
+    height: 100vh;
+    border-right: solid 2px black;
+}
+#main-doc{
+  margin-left: 310px;
+  padding: 20px;
+}
+header{
+    text-align: left;
+}
+.thin{
+    font-weight:600 ;
+}
+.rec{
+    font-size: 40px;
+    color: rgba(85, 40, 85, 0.801);
+    font-family: serif; 
+}
+
+@media only screen and ( max-width:460px ) {
+    #navbar{
+        position: absolute;
+        top: 120px;
+        border-bottom: solid 2px black;
+        margin: 0px;
+        padding: 0px;
+        width: 460px;
+        height: 400px;
+        text-align: center;
+    }
+    #navbar ul{
+        padding: 0px;
+        margin: -20px;
+    } 
+    #navbar ul li{
+        padding: 5px;
+        margin: -5px;
+    }
+   
+    #main-doc{
+        position: absolute;
+        margin-top: 400px;
+        margin-left:0px ;
+    }
+    
+
+}
+
+
+
+
+
+
+
+
+
